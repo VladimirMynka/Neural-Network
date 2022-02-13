@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Neural Network</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <aside id = "leftPanel">
+            <div id = "leftTitle">Нейронная сеть</div>
+            <div id = "colorButtons">
+                <div id = "upperColorButtons">
+                    <button class = "colorButton" id = "whiteButton">белый</button>
+                    <button class = "colorButton" id = "blackButton">чёрный</button>
+                </div>
+                <div id = "currentColorText">Текущий цвет: 
+                    <div id = "currentColorShow" class = "currentColorShow tblack">чёрный</div>
+                </div>
+                <div id = "lineWidhtBlock">
+                    <label for = "lineWidhtInput">Радиус линии</label>
+                    <input type = "number" id = "lineWidhtInput" value = "4" maxlength = "2" min = "1" max = "15">
+                    <label for = "lineWidhtInput">px</label>
+                </div>
+                <button id = "allPaintButton">закрасить всё</button>
+            </div>
+
+            <div id = "askBlock">
+                Вы ввели <div id = "output">5</div>?
+                <button class = "instructionButton" id = "yesButton">да</button>
+                <button class = "instructionButton" id = "noButton">нет</button>
+            </div>
+            <div id = "newDataBlock" hidden>
+                <label for = "newDataInput" id = "forNewData">А что вы ввели?</label>
+                <input type = "number" id = "newDataInput" value = "0" maxlength = "1" min = "0" max = "9">
+                <button class = "instructionButton" id = "sendButton">отправить данные для обучения</button>
+            </div>
+            <span id = "sanksText" hidden>Спасибо!</span>
+
+            <button id = "weightsBlockButton">- веса</button>
+            <div id = "weightsBlock" style = "display: none">
+                <div class = "miniTitle">Параметры</div>
+                <div class = "uploadBlock" id = "uploadWeightsBlock">
+                    <input type = "file" class = "uploadButton" id = "uploadButton">
+                    <label for = "uploadButton" class = "forUploadButton" id = "uploadLabel">загрузить веса</label>
+                    <div id="textUploaded" hidden>
+                        Загружено: <div id = "weightsFileName"></div>
+                    </div>
+                </div>
+                <a id = "downloadButton">скачать новые веса</a>
+            </div>
+
+            <button id = "testsBlockButton">- выборки</button>
+            <div id = "testsBlock" style = "display: none">
+                <div id = "createTestsBlock">
+                    <div id = "createTestsTitle" class = "miniTitle">Генерация тестов</div>
+                    <div id = "testsAddBlock">
+                        <div id = "testsInputBlock">
+                            <label for = "testsInput">Введено:</label> 
+                            <input type = "number" id = "testsInput" value = "0" maxlength = "1" min = "0" max = "9">
+                        </div>
+                        <button id = "addTestButton">добавить</button>
+                        <div id = "addTestText" hidden>
+                            В выборке
+                            <div id = "testsQuantityText"></div>
+                            тестов
+                        </div>
+                    </div>
+                    <a id = "downloadTestsButton">скачать тесты</a>
+                </div>
+                <div id = "megaLearnBlock">
+                    <div id = "megaLearnTitle" class = "miniTitle">Быстрое обучение</div>
+                    <div id = "uploadTestsBlock" class = "uploadBlock">
+                        <input type = "file" class = "uploadButton" id = "uploadTestsButton">
+                        <label for = "uploadTestsButton" class = "forUploadButton" id = "uploadTestsLabel">
+                            загрузить тесты
+                        </label>
+                        <div id="textUploadedTests" hidden>
+                            Загружено: <div id = "testsFileName"></div>
+                        </div>
+                    </div>
+                    <div id = "megaLearnTimes">
+                        <label for = "megaLearnInput">Прогнать</label>
+                        <input type = "number" value = "1" id = "megaLearnInput" min = "0">
+                        <label for = "megaLearnInput">раз</label>
+                    </div>
+                    <button id = "megaLearnStartButton">учись!</button>
+                    <div id = "learningStateText" hidden></div>
+                </div>
+            </div>
+        </aside>
+
+        <div id = "drawingArea"></div>
+
+        <aside id = "rightPanel">
+            <a href = "#" id = "onMain">На главную</a>
+            <button id = "whatAreTheWeightsButton">- Что за веса?</button>
+            <div id = "whatAreTheWeightsBlock" style = "display: none;">
+                <p class = "textFirst">
+                    Когда вы открываете страницу, нейросеть ещё не обучена. Она обучается, 
+                    когда вы взаимодействуете с ней: нажимаете кнопки "да" или "нет" и "отправить данные"
+                </p>
+                <p>
+                    Может быть немного больно, если вы целый день обучали её, а потом случайно
+                    обновили браузер и все ваши труды слетели
+                </p>
+                <p>
+                    Для того, чтобы избежать этого, воспользуйтесь меню "веса":
+                </p>
+                <p class = "textLast">
+                    Нажмите на кнопку "скачать новые веса", чтобы получить данные на свой компьютер.
+                    После обновления страницы нажмите "загрузить веса" и выберите скачанный ранее файл.
+                    Так нейронка вспомнит всё то, что знала
+                </p>
+            </div>
+
+            <button id = "whatAreTheTestsButton">- Что за выборки?</button>
+            <div id = "whatAreTheTestsBlock" style = "display: none;">
+                <p class = "textFirst">
+                    Если вы хотите обучить нейронку быстро и качественно, мы создали меню "выборки"
+                </p>
+                <p>
+                    В верхней части меню расположен блок "Генерация тестов". Нарисуйте на холсте цифру,
+                    введите значение в коричневой рамочке и кликните "добавить". Программа добавит
+                    ваш тест в выборку
+                </p>
+                <p>
+                    Когда все тесты введены, нажмите "скачать тесты". Файл формата json попадёт на ваш 
+                    компьютер
+                </p>
+                <p>
+                    В блоке "Быстрое обучение" вы можете загрузить скачанные тесты. При этом те тесты, что
+                    вы ввели, заменятся на загруженные. Вы можете добавить в выборку и загрузить общий файл
+                </p>
+                <p class = "textLast">
+                    В последней части меню установите число прогонов и ткните "учись!". Код прогонит ваши 
+                    тесты заданное количество раз и нейронка станет умненькой. Можете скачивать новые веса
+                </p>
+            </div>
+
+            <button id = "keyboardInfoButton">- Для ленивых</button>
+            <div id = "keyboardInfoBlock" style="display: none;">
+                <p class = "textFirst">
+                    Если вам лень каждый раз переносить мышку с поля на боковое меню, вы можете 
+                    использовать клавиатуру. Далее приведён список "клавиша - кнопка бокового меню"
+                </p>
+                <ul class = "textLast">
+                    <li>W - "белый"</li>
+                    <li>B - "чёрный"</li>
+                    <li>U - "радиус линии"</li>
+                    <li>Space - "закрасить всё"</li>
+                    <li>Y - "да"</li>
+                    <li>N - "нет"</li>
+                    <li>D - "а что вы ввели?"</li>
+                    <li>E - "веса"</li>
+                    <li>T - "выборки"</li>
+                    <li>A - "добавить" [тест]</li>
+                    <li>H - "для ленивых"</li>
+                </ul>
+            </div>
+        </aside>
+
+        <script src = "NeuralNetwork.js"></script>
+    </body>
+
+
+</html>

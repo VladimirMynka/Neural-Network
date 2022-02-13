@@ -1,0 +1,650 @@
+* {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #6a5d63;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    /* overflow: hidden; */
+}
+
+button:focus{
+    outline: none;
+    box-shadow: 0 0 10px 2px #6a5d63;
+}
+
+button:active{
+    box-shadow: 0 0 10px 2px #6a5d63;
+}
+
+input:focus{
+    outline: none;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+input[type=number]{
+    width: 30px;
+    border: 1px solid;
+    color: #6a5d63;
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-bottom: 5px;
+}
+
+button:hover{
+    border: 1px #6a5d63 solid;
+    box-shadow: 0 0 10px 3px #6a5d63;
+}
+
+button:active{
+    outline: none;
+    box-shadow: 0 0 20px 2px #6a5d63;
+}
+
+#leftPanel, #rightPanel {
+    max-height: 100vh;
+    height: 100vh;
+    width: 220px;
+    position: relative;
+    background-color: #cdb78a;
+    color: #64423c;
+    font-size: 16px;
+}
+
+/*------------------Левая панель-----------------*/
+#leftPanel{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    border-right: 4px #8f5e3a solid;
+}
+
+#leftTitle{
+    font-size: 25px;
+    align-self: flex-start;
+    margin-left: 10%;
+    margin-top: 2%;
+    color: #64423c;
+}
+
+#colorButtons, #weightsBlock, #testsBlock {
+    background-color: #64423c;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color:#cdb78a;
+}
+
+/*-------------------------------*/
+
+#colorButtons {
+    height: 140px;
+}
+
+#upperColorButtons{
+    align-self: center;
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+    margin-top: 2%;
+    margin-bottom: 5%
+}
+
+.colorButton{
+    height: 30px;
+    width: 49%;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 1px 1px #6a5d63;
+}
+
+.colorButton:hover{
+    border: 1px #6a5d63 solid;
+    box-shadow: 0 0 10px 3px #6a5d63;
+}
+
+.colorButton:focus{
+    outline: none;
+}
+
+#whiteButton{
+    background-color: #eeeeee;
+    border: 1px #eeeeee solid;
+    color: #64423c;
+}
+
+#blackButton{
+    background-color: #000000;
+    border: 1px #000000 solid;
+    color: #cdb78a;
+}
+
+#currentColorText{
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.currentColorShow{
+    text-align: center;
+    border-left: 3px #64423c solid;
+    background-color: #8f5d3a;
+    width: 60px;
+}
+
+.tblack{
+    color: #000000;
+}
+
+.twhite{
+    color: #EAEAEA;
+}
+
+#lineWidhtBlock{
+    margin-top: 2px;
+    margin-left: 10px;
+}
+
+#lineWidhtInput{
+    background-color: #64423c;
+    border-color: #cdb78a;
+    color: #cdb78a;
+    font-size: 16px;
+}
+
+#allPaintButton{
+    align-self: center;
+    margin-top: 10px;
+    width: 150px;
+    height: 30px;
+    background-color: #8f5e3a;
+    border: 1px #cdb78a solid;
+    color: #cdb78a;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 1px 1px #6a5d63;
+}
+
+#allPaintButton:hover{
+    border: 1px #6a5d63 solid;
+    box-shadow: 0 0 10px 1px #6a5d63;
+}
+
+/*-----------------------------------------*/
+.instructionButton{
+    align-self: center;
+    background-color: #8f5e3a;
+    border: 1px #cdb78a solid;
+    color: #cdb78a;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 1px 1px #6a5d63;
+}
+
+.instructionButton:hover{
+    border: 1px #6a5d63 solid;
+    box-shadow: 0 0 10px 1px #6a5d63;
+}
+
+#askBlock{
+    align-self: flex-end;
+    margin-top: 5px;
+    margin-right: 17px;
+}
+
+#output{
+    display: inline-block;
+    font-size: 18px;
+    color:#6a5d63;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#newDataBlock{
+    align-self: flex-end;
+    margin-top: 5px;
+    width: 177px;
+}
+
+#forNewData{
+    align-self: flex-end;
+    margin-left: 5px;
+}
+
+#newDataInput{
+    align-self: flex-end;
+    background-color: #cdb78a;
+    border: 1px #8f5d3a solid;
+    color: #6a5d63;
+    margin-left: 5px;
+}
+
+#sendButton{
+    margin-top: 5px;
+    width: 160px;
+}
+
+#sanksText{
+    align-self: flex-end;
+    margin-top: 10px;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+/*-----------------------------------------*/
+#weightsBlock{
+    height: 170px;
+    font-size: 18px;
+}
+
+.uploadBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 3px #8f5d3a dotted;
+}
+
+#uploadWeightsBlock{
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 170px;
+    height: 70px;
+}
+
+.uploadButton{
+    width: 0px;
+    height: 0px;
+}
+
+.forUploadButton{
+    background-color: #cdb78a;
+    border: 1px #8f5e3a solid;
+    color: #8f5e3a;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 1px 1px #6a5d63;
+    text-align: center;
+}
+
+.forUploadButton:hover{
+    border: 1px #6a5d63 solid;
+    box-shadow: 0 0 5px 1px #6a5d63;
+}
+
+#uploadLabel{
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 135px;
+    line-height: 30px;
+}
+
+#textUploaded{
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+#weightsFileName{
+    display: inline-block;
+    width: 70px;
+    height: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+#downloadButton{
+    align-self: flex-end;
+    width: 150px;
+    line-height: 30px;
+    margin-top: 15px;
+    margin-right: 8px;
+    background-color: #cdb78a;
+    border: 1px #8f5e3a solid;
+    color: #8f5e3a;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 1px 1px #6a5d63;
+    text-align: center;
+}
+
+#downloadButton:hover{
+    border: 1px #6a5d63 solid;
+    box-shadow: 0 0 5px 1px #6a5d63;
+}
+/*-----------------------------------------*/
+#testsBlock{
+    height: 350px;
+    font-size: 18px;
+}
+
+#createTestsBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.miniTitle{
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+#testsAddBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 170px;
+    height: 85px;
+    border: 3px #8f5d3a dotted;
+}
+
+#testsInputBlock{
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+#testsInput{
+    background-color: #64423c;
+    border: 1px #cdb78a solid;
+    color: #cdb78a;
+}
+
+#addTestButton{
+    align-self: flex-end;
+    width: 100px;
+    line-height: 20px;
+    margin-top: 5px;
+    margin-right: 7px;
+    background-color: #cdb78a;
+    border: 1px #8f5e3a solid;
+    color: #8f5e3a;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 1px 1px #6a5d63;
+    text-align: center;
+}
+
+#addTestButton:hover{
+    border: 1px #6a5d63 solid;
+    box-shadow: 0 0 10px 3px #6a5d63;
+}
+
+#addTestButton:active{
+    outline: none;
+    box-shadow: 0 0 20px 2px #6a5d63;
+}
+
+#addTestText{
+    align-self: flex-end;
+    margin-right: 10px;
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+#testsQuantityText{
+    display: inline-block;
+}
+
+#downloadTestsButton{
+    align-self: flex-end;
+    width: 175px;
+    line-height: 25px;
+    margin-top: -3px;
+    margin-right: 0px;
+    background-color: #8f5d3a;
+    border: 1px #8f5d3a solid;
+    border-top: none;
+    color: #cdb78a;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 1px 0px #6a5d63;
+    text-align: center;
+}
+
+#downloadTestsButton:hover{
+    border: 1px #6a5d63 solid;
+    border-top: none;
+    box-shadow: 0 0 10px 3px #6a5d63;
+}
+
+#downloadTestsButton:active{
+    outline: none;
+    border-top: none;
+    box-shadow: 0 0 20px 2px #6a5d63;
+}
+
+/*------------------------------------------------*/
+#megaLearnBlock{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 187px;
+    margin-top: 10px;
+    border-top: 2px #6a5d63 dashed;
+}
+
+#uploadTestsBlock{
+    margin-left: 5px;
+    width: 170px;
+    height: 75px;
+}
+
+#uploadTestsLabel{
+    margin-left: 5px;
+    margin-top: 5px;
+    width: 140px;
+    line-height: 30px;
+}
+
+#textUploadedTests{
+    margin-top: 10px;
+    margin-left: 8px;
+}
+
+#testsFileName{
+    display: inline-block;
+    width: 70px;
+    height: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+#megaLearnTimes{
+    margin-top: 1px;
+    align-self: center;
+}
+
+#megaLearnInput{
+    width: 60px;
+    background-color: #64423c;
+    border: 1px #cdb78a solid;
+    color: #cdb78a;
+}
+
+#megaLearnStartButton{
+    align-self: flex-end;
+    width: 80px;
+    line-height: 25px;
+    margin-top: 3px;
+    margin-right: 8px;
+    background-color: #cdb78a;
+    border: 1px #8f5d3a solid;
+    color: #8f5d3a;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 1px 1px #6a5d63;
+    text-align: center;
+}
+
+#megaLearnStartButton:hover{
+    border: 1px #6a5d63 solid;
+    box-shadow: 0 0 10px 3px #6a5d63;
+}
+
+#megaLearnStartButton:active{
+    outline: none;
+    box-shadow: 0 0 20px 2px #6a5d63;
+}
+
+#learningStateText{
+    align-self: flex-end;
+    margin-right: 10px;
+    margin-top: 2px;
+    font-size: 14px;
+}
+
+/*-------------------------------------------------*/
+#weightsBlockButton, #testsBlockButton{
+    align-self: center;
+    width: 85%;
+    height: 30px;
+    background-color: #64423c;
+    border: none;
+    color:#cdb78a;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    box-shadow: none;
+    text-align: start;
+}
+
+#weightsBlockButton{
+    margin-top: 10px;
+    border-top: 2px #6a5d63 solid;
+    border-bottom: 1px #6a5d63 solid;
+}
+
+#testsBlockButton{
+    border-top: 1px #6a5d63 solid;
+    border-bottom: 2px #6a5d63 solid;
+}
+
+/*------------------Правая панель------------------*/
+#rightPanel{
+    width: 270px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 4px #8f5e3a solid;
+}
+
+#onMain{
+    width: 150px;
+    line-height: 30px;
+    margin-top: 5px;
+    background-color: #8f5d3a;
+    border: 1px #cdb78a solid;
+    color: #cdb78a;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-shadow: 0 0 1px 1px #6a5d63;
+    text-align: center;
+}
+
+#onMain:hover{
+    border: 1px #6a5d63 solid;
+    box-shadow: 0 0 10px 3px #6a5d63;
+}
+
+#whatAreTheWeightsBlock, #whatAreTheTestsBlock, #keyboardInfoBlock{
+    width: 224px;
+    padding: 3px;
+    background-color: #64423c;
+    color:#cdb78a;
+    text-align: justify;
+    font-size: 16px;
+}
+
+.textFirst{
+    margin-top: 0px;
+}
+
+.textLast{
+    margin-bottom: 0px;
+}
+
+/*-------------------------------------------------*/
+#whatAreTheWeightsButton, #whatAreTheTestsButton, #keyboardInfoButton{
+    align-self: center;
+    width: 230px;
+    height: 30px;
+    background-color: #64423c;
+    border: none;
+    color:#cdb78a;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    cursor: pointer;
+    box-shadow: none;
+    text-align: start;
+}
+
+#whatAreTheWeightsButton{
+    margin-top: 10px;
+    border-top: 2px #6a5d63 solid;
+    border-bottom: 1px #6a5d63 solid;
+}
+
+#whatAreTheTestsButton{
+    border-top: 1px #6a5d63 solid;
+    border-bottom: 1px #6a5d63 solid;
+}
+
+#keyboardInfoButton {
+    border-top: 1px #6a5d63 solid;
+    border-bottom: 1px #6a5d63 solid;
+}
+
+/*------------------Drawing Area-------------------*/
+
+#drawingArea{
+    border: 1px #000000 solid;
+    cursor: pointer;
+    font-size:0px;
+    margin-top: 20px;
+}
+
+.pixel{
+    display: inline-block;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+.white{
+    background-color: #ffffff;
+}
+
+.black{
+    background-color: black;
+}
